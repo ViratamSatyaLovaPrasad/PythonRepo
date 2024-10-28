@@ -1,0 +1,302 @@
+Command line arguments:
+========================
+Arguments which are passing through commandline by programmer or developer
+is a concept of commandline arguments.
+
+
+Main() is the starting point of execution of every c# program.
+
+Main() accepts only array of string but it never accepts parameters from 
+any other method in the program.
+==================================================================================================================================================
+Exception Handling:
+===================
+Exception Handling is a unique concept for all the programming languages.
+Generally for every programming languages we have 2 types of errors:
+   a)Compiletime error
+   b)Runtime error
+
+a)CompileTime Error:
+====================
+Errors which are occured at time of compiling the code internally by python interpreter is a concept of compile time errors.
+If any compile time errors are occured then programmer or developer can resolve those compile time or syntax errors 
+other wise program won't be execute.
+c)following reasons to get the compiletime or syntax errors:
+    i)missing the parenthesis symbols
+    ii)missing any symbols with in the program
+
+b)Runtime Error:
+=================
+Errors which are occured at the time of executing the program is a concept of runtime errors
+Runtime errors will be occured due to invalid coding or invalid logic and hardware issues and software issues.
+If any Runtime errors are occured then we can handle those runtime errors using try and except block statements.
+
+try:
+====
+Any block which is preceeded with try keyword is also known as a try block.
+
+Syntax:
+=======
+try{
+  ====
+  ====
+}
+The purpose of using try block is to keep the error code only and try block internally passing that error code to catch block.
+with out try block we cannot work with exception handling concept, why because all the errors represented code we can keep
+inside of try block itself.
+
+
+except:
+========
+Any block which is preceeded with except keyword is also known as a except block.
+
+Syntax:
+=======
+except(ExceptionClass){
+  ====
+  ====
+}
+
+catch block is used to handle the runtime errors based on errocode which was provided internally by try block using its Corresponding Error Class.   
+With out except block we cannot handle the Runtime errors.
+
+Example Program:
+=================
+clasas AB{
+   public static void Main(string[] args){
+       int x=5
+       int y=0
+       Console.WriteLine(x/y);
+  }
+}
+
+
+Output:
+=======
+DivisionByZeroException: division by zero
+
+Example Program using try and except block:
+===========================================
+clasas AB{
+     public static void Main(string[] args){
+       try{
+         int x=5
+         int y=0
+         Console.WriteLine(x/y);
+       }
+       catch(DivisionByZeroException){
+           Console.WriteLine("Second Number cannot be Zero");
+       }
+    }
+}
+
+
+Output:
+=======
+Second Number cannot be Zero
+
+Example Program using Single try with Multiple except block statements:
+=========================================================================
+using System;
+namespace DemoPgm
+{
+	public class Program
+	{
+		public static void Main(string[] args)
+		{
+			try{
+         Console.WriteLine("Enter the FirstNumber=");
+         int x=Convert.ToInt32(Console.ReadLine());
+         Console.WriteLine("Enter the SecondNumber=");
+         int y=Convert.ToInt32(Console.ReadLine());
+         Console.WriteLine(x/y);
+       }
+       catch(DivideByZeroException){
+           Console.WriteLine("Second Number cannot be Zero");
+       }
+       catch(FormatException){
+           Console.WriteLine("Enter Only Numerical Errors");
+       }
+     }
+   }
+}
+
+Output:
+========
+Enter Only Numerical Errors...
+
+finally block:
+===============
+*)A block which is preceeded with finally keyword is also known as a finally block.
+*)With out try block if we are trying to work with except and finally blocks means we will get compile time errors.
+*With out catch block. we can work with try and finally block statements but exception cannot be handled.
+*)The main purposes of using finally block statement is use to define the resource releasing statements like 
+database connection closing statements and file connection closing statements code.
+*)Wheather the runtime error is occured or not occured and it is handled or not handled the code 
+logic which is defined inside the finally block must be executed.
+
+syntax:
+=======
+try{
+  ====
+  ====
+}
+catch(ExceptionClass){
+  =====
+  =====
+}
+finally{
+  =====
+  =====
+}
+
+Example Program on finally block:
+===================================
+using System;
+public class FinallyPgm
+{
+   	public static void Main(string[] args)
+	{
+	   try{
+         Console.WriteLine("Enter the FirstNumber=");
+         int x=Convert.ToInt32(Console.ReadLine());
+         Console.WriteLine("Enter the SecondNumber=");
+         int y=Convert.ToInt32(Console.ReadLine());
+         Console.WriteLine(x/y);
+       }
+       /*
+       catch(DivideByZeroException){
+           Console.WriteLine("Second Number cannot be Zero");
+       }
+       catch(FormatException){
+           Console.WriteLine("Enter Only Numerical Errors");
+       }*/
+       finally{
+         Console.WriteLine("hello");
+       }
+    }
+}
+============================================================================================================================================
+using System;
+public class HelloWorld
+{
+   	public static void Main(string[] args)
+	{
+	   try{
+         Console.WriteLine("Enter the FirstNumber=");
+         int x=Convert.ToInt32(Console.ReadLine());
+         Console.WriteLine("Enter the SecondNumber=");
+         int y=Convert.ToInt32(Console.ReadLine());
+         Console.WriteLine(x/y);
+       }
+       catch(Exception){
+           Console.WriteLine("Error Occured....");
+       }
+       /*
+       catch(DivideByZeroException){
+           Console.WriteLine("Second Number cannot be Zero");
+       }
+       catch(FormatException){
+           Console.WriteLine("Enter Only Numerical Errors");
+       }*/
+       finally{
+         Console.WriteLine("hello");
+       }
+	}
+}
+
+
+Single try with multiple catch block statements:
+=================================================
+always parent exception class must be the last class and if child exception classes won't be handle the exception then
+automcatically parent exception class will handle the exception.
+
+Syntax:
+=======
+class Classname{
+   Main(){
+     try{
+     }
+     catch(ChildExceptionClass){
+     }
+     catch(ChildExceptionClass){
+     }
+     catch(ParentException){
+     }
+   }
+}
+
+Example Program:
+=================
+using System;
+public class HelloWorld
+{
+   	public static void Main(string[] args)
+	{
+	   try{
+         Console.WriteLine("Enter the FirstNumber=");
+         int x=Convert.ToInt32(Console.ReadLine());
+         Console.WriteLine("Enter the SecondNumber=");
+         int y=Convert.ToInt32(Console.ReadLine());
+         Console.WriteLine(x/y);
+       }
+       catch(DivideByZeroException){
+           Console.WriteLine("Second Number cannot be Zero");
+       }
+       catch(FormatException){
+           Console.WriteLine("Enter Only Numerical Errors");
+       }
+       catch(Exception){
+           Console.WriteLine("Error Occured....");
+       }
+       finally{
+         Console.WriteLine("hello");
+       }
+	}
+}
+
+=========================================================================================================================================
+Nested Try Catch Finally block statements:
+===========================================
+Defining the Try Catch Finally block statements inside of another try and catch and finally block statements is a concept
+of nested or inner try catch finally block statements.
+
+Syntax:
+=======
+try{
+   try{
+   }
+   catch(){
+   }
+   finally{
+   }
+}
+catch(){
+   try{
+   }
+   catch(){
+   }
+   finally{
+   }
+}
+finally{
+   try{
+   }
+   catch(){
+   }
+   finally{
+   }
+}
+====================================================================================================================================================
+throw keyword:
+===============
+throw is a one of the keyword, which is used to throw the custom defined exceptions.
+
+
+InSufficientFundsException
+InValidAgeException
+ItemNotAvailableException
+DeliveryNotAvailableException
+
+throw====>validate the object using if condition.
+     
